@@ -1,0 +1,209 @@
+package project;
+
+
+import java.util.ArrayList;
+
+import  java.io.*;
+
+import java.util.Scanner;
+
+
+
+public class Shop {
+
+
+
+    private String name;
+
+    private String city;
+
+    private Departments[] goods = new Departments[10] ;
+
+    private ArrayList<Order> Prunchases ;
+
+
+
+    public Shop(){
+
+
+
+        name="";
+
+        city="";
+
+        Prunchases =null;
+
+    }
+
+
+
+    public Shop(String name , String city){
+
+        this.name=name;
+
+        this.city=city;
+
+        Prunchases = new ArrayList<>();
+
+    }
+
+    public boolean isFlowerAvailable(int index){
+
+        if(index < 0 || index >=10)
+
+            throw  new ArrayIndexOutOfBoundsException("Invalid choice !");
+
+        if(goods[index] ==null)
+            return false;
+        
+        return goods[index].isAvailable();
+
+    }
+
+    public  boolean newOrder(Order ord) throws FileNotFoundException{
+
+        ord.getItem().setIsAvailable(false);
+
+        updateAndSaveOrderInfo();//update data into the file
+
+        return Prunchases.add(ord);
+    }
+
+
+
+    public boolean cancelOrder(int orderNum) throws FileNotFoundException {
+
+        for(Order b : Prunchases){
+
+            if(b.getRecNum() == orderNum) {
+                Prunchases.remove(b);
+                updateAndSaveOrderInfo();   //update data into the file
+                return  true;
+            }
+        }
+        return  false;
+    }
+    
+    
+
+    public Order getOrderInfo(int orderNum){
+
+        for(Order b : Prunchases){
+            if(b.getRecNum() == orderNum) {
+                return  b;
+            }
+        }
+        return  null;
+ }
+
+
+
+    public  void costOfOrder (int orderNum) throws FileNotFoundException {
+
+        for(Order b : Prunchases){
+            if(b.getRecNum() ==orderNum) {
+                b.print();
+                System.out.printf("Total Payment: %.2f%n",b.calculatePayment());
+                System.out.println("Thank You");
+                updateAndSaveOrderInfo();
+                return;
+            }
+        }
+        System.out.println("Invalid order number !");
+    }
+
+    
+    
+    public  void printOrderDetails(int orderNum){
+
+        for(Order b : Prunchases) {
+            if (b.getRecNum() == orderNum) {
+               b.print();
+               return; 
+            }
+        }
+        System.out.println("Can't find this order , try again !");
+    }
+
+   
+    public void loadOrderData(String fileName) throws IOException {
+        
+        
+
+    }
+
+
+    
+    
+    public void updateAndSaveOrderInfo() throws FileNotFoundException{
+
+
+
+        PrintWriter writer = new PrintWriter("cars.txt");
+
+
+
+        for(Departments o : goods){
+
+            if(o !=null)
+
+           writer.printf("%s,%s,%s,%s,",o.getRecNum() , o.getServiceType() , o.getColor() , o.getPriceOfPiece() );
+
+        }
+        writer.close();
+
+    }
+
+
+
+
+
+    public  int displayAvailableCars() throws IOException{
+
+
+
+        loadOrderData("Flowers.txt");//load the updated cars data
+
+
+
+        System.out.println("=================item List================");
+
+        System.out.println("No   Serves-Type    color     Price");
+
+        System.out.println("===========================================");
+
+
+
+        int availableGoodsCounter =0;
+
+        int index =0;
+
+        for(Departments goo : goods){
+
+
+
+            if( goo != null && goo.isAvailable() ) {
+
+                System.out.println(index+"  "+goo);
+
+                System.out.println("-------------------------------------------");
+
+                availableGoodsCounter++;
+
+            }
+
+            index++;
+
+        }
+
+        return  availableGoodsCounter;
+
+    }
+
+    public Departments getOrder(int index) {
+
+         return goods[index];
+
+    }
+
+}
