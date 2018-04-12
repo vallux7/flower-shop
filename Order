@@ -1,0 +1,130 @@
+package flowerproject;
+
+/**
+ *
+ * @author muner
+ */
+import java.util.*;
+
+public abstract class Order implements Payable {
+
+    static Scanner in = new Scanner(System.in);
+
+    private long RequestNumber;
+
+    private String PaymentType; //visa , cash
+
+    private Date RequestDate;
+
+    private int quantity;
+
+    private Date delDate;
+
+    private Customer info;
+
+    private Departments item;
+
+    public Order(long RequestNumber, String PaymentType, flowerproject.Date RequestDate, int quantity, flowerproject.Date delDate, Customer info, Departments item) {
+        this.RequestNumber = RequestNumber;
+        this.PaymentType = PaymentType;
+        this.RequestDate = RequestDate;
+        this.quantity = quantity;
+        this.delDate = delDate;
+        this.info = info;
+        this.item = item;
+    }
+
+    public Order() {
+        RequestNumber = 0;
+        PaymentType = "";
+        quantity = 0;
+        RequestDate = null;
+        delDate = null;
+        info = null;
+        item = null;
+    }
+
+    public Customer getInfo() {
+
+        return info;
+
+    }
+
+    public void setInfo(Customer info) {
+
+        this.info = info;
+
+    }
+
+    public Departments getItem() {
+
+        return item;
+
+    }
+
+    public void setItem(Departments item) {
+
+        this.item = item;
+
+    }
+
+    public long getRequestNumber() {
+
+        return RequestNumber;
+
+    }
+
+    public void setRequestNumber(long RequestNumber) {
+
+        this.RequestNumber = RequestNumber;
+
+    }
+
+    public Date getRequestDate() {
+
+        return RequestDate;
+
+    }
+
+    public void setRequestDate(Date RequestDate) {
+
+        this.RequestDate = RequestDate;
+
+    }
+
+    public int getQuantity() {
+
+        return quantity;
+
+    }
+
+    public void setQuantity(int quantity) {
+
+        this.quantity = quantity;
+
+    }
+
+    public Date getDelDate() {
+
+        return delDate;
+
+    }
+
+    public void setDelDate(Date delDate) {
+
+        this.delDate = delDate;
+
+    }
+
+    public abstract String getServiceType();//accessories , flower (real , artifical)
+
+    public void print() {
+
+        System.out.print("£££££££££££££££££ ORDER £££££££££££££££3"
+                     +   "\n    Request Number :" + RequestNumber +
+                         "\n    Recuest Date :" + RequestDate + 
+                         "\n    Delivery Date :" + delDate +
+                         "\n    Custumer Information :" + info);
+
+    }
+}
