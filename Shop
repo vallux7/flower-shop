@@ -1,0 +1,48 @@
+package flowerproject;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author muner
+ */
+public class Shop {
+    //files
+    
+    
+    private String name;
+
+    private String city;
+
+    private Departments[] goods = new Departments[10] ;
+
+    private ArrayList<Order> Prunchases ;
+
+
+
+    public Shop(){
+
+
+
+        name="";
+
+        city="";
+
+        Prunchases =null;
+
+    }
+    
+ public boolean isFlowerAvailable(int index){
+
+        if(index < 0 || index >=10)
+
+            throw  new ArrayIndexOutOfBoundsException("Invalid choice !");
+
+        if(goods[index] ==null)
+            return false;
+        
+        return goods[index].isAvailable();
+
+    }
+
+}
