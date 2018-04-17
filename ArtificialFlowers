@@ -1,0 +1,45 @@
+public class ArtificialFlowers extends Flowers {
+
+
+  
+    public ArtificialFlowers() {
+
+    }
+
+    
+    public ArtificialFlowers(String color, int priceOfPiece, long RequestNumber, String PaymentType, Date RequestDate, int quantity, Date delDate, Customer info) {
+        super(color, priceOfPiece, RequestNumber, PaymentType, RequestDate, quantity, delDate, info);
+      
+    }
+
+
+    @Override
+    public void print() {
+        super.print();
+        System.out.println("total price :"+calculatePayment());
+        
+    }
+
+    @Override
+       public double calculatePayment() {
+
+        double totalPrice = getQuantity() *7;
+
+        if (totalPrice >= 500) {
+
+            return ((totalPrice) * 0.3) - getPriceOfPiece();
+
+        }
+
+        return totalPrice;
+
+    }
+
+    @Override
+
+    public String getServiceType() {
+
+        return "Artificial Flowers";
+
+    }
+}
