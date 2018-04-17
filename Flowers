@@ -1,0 +1,21 @@
+
+public abstract class Flowers extends Departments {
+
+
+    public Flowers() {
+
+    }
+
+    public Flowers(String color, int priceOfPiece, long RequestNumber, String PaymentType, Date RequestDate, int quantity, Date delDate, Customer info) {
+        super(color, priceOfPiece, RequestNumber, PaymentType, RequestDate, quantity, delDate, info);
+       
+    }
+
+ 
+    @Override
+
+    public abstract double calculatePayment();
+
+   
+
+}
