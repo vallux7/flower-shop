@@ -1,0 +1,74 @@
+public abstract class Departments extends Order {
+
+    private String color;
+
+    private int priceOfPiece;
+
+
+    public Departments() {
+
+        color = "";
+
+        priceOfPiece = 0;
+
+     
+
+    }
+
+    public Departments(String color, int priceOfPiece, long RequestNumber, String PaymentType, Date RequestDate, int quantity, Date delDate, Customer info) {
+        super(RequestNumber, PaymentType, RequestDate, quantity, delDate, info);
+        this.color = color;
+        this.priceOfPiece = priceOfPiece;
+     
+    }
+
+    public Departments(String color) {
+        this.color = color;
+    }
+
+   
+
+  
+
+    public void setPriceOfPiece(int price) {
+
+        if (price < 0) {
+
+            throw new IllegalArgumentException("Invalid Price !");
+
+        }
+
+        this.priceOfPiece = price;
+
+    }
+
+    public void setColor(String color) {
+
+        this.color = color;
+
+    }
+
+  
+
+    public String getColor() {
+
+        return color;
+
+    }
+
+    public int getPriceOfPiece() {
+
+        return priceOfPiece;
+
+    }
+  @Override
+      public void print() {
+       super.print();
+        System.out.println("\n color:" + color );
+               
+
+    }
+
+      
+   
+}
