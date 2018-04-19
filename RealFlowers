@@ -1,0 +1,66 @@
+public class RealFlowers extends Flowers {
+    private String FlowerName;
+
+    public RealFlowers() {
+this.FlowerName="";
+
+        
+    }
+    public RealFlowers(String FlowerName, String color, int priceOfPiece, long RequestNumber, String PaymentType, Date RequestDate, int quantity, Date delDate, Customer info) {
+        super(color, priceOfPiece, RequestNumber, PaymentType, RequestDate, quantity, delDate, info);
+        this.FlowerName = FlowerName;
+      
+    }
+
+    public RealFlowers(String FlowerName, String color) {
+        super(color);
+        this.FlowerName = FlowerName;
+    }
+
+    public String getFlowerName() {
+        return FlowerName;
+    }
+
+    public void setFlowerName(String FlowerName) {
+        this.FlowerName = FlowerName;
+    }
+
+
+    @Override
+        public void print() {
+super.print();
+        System.out.println("\nFlower Name:" + FlowerName );
+                System.out.println("total price :"+calculatePayment());
+               
+
+    }
+  @Override
+       public double calculatePayment() {
+
+     double totalPrice = getQuantity() *3;
+
+        if (totalPrice >= 500) {
+
+            return ((totalPrice) * 0.3) - getPriceOfPiece();
+
+        }
+
+        return totalPrice;
+    }
+   
+       
+        public void FlowerTypes (){
+System.out.printf("      flower name : %s ", getFlowerName());
+System.out.printf("               color : %s%n ",super.getColor());
+        }
+        
+        
+    @Override
+
+    public String getServiceType() {
+
+        return "Real Flowers";
+
+    }
+
+}
