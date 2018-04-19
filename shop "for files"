@@ -1,0 +1,75 @@
+public class Shop {
+    //files
+    
+    
+    private String name;
+
+    private String city;
+
+    Formatter formatter;
+
+    public Shop(){
+
+        name="";
+
+        city="";
+    }
+
+    public Shop(String name, String city) {
+        this.name = name;
+        this.city = city;
+    }
+    
+
+ 
+ public void openFile(){
+     try{
+ formatter= new  Formatter ("Flowershop.txt");
+     }catch(FileNotFoundException ex){
+         System.out.println("Logic to handel the exception !");
+     
+     }
+ 
+ }
+ 
+  public void writeData(Order obj){
+    try{
+   if (obj instanceof Accessories) {
+          Accessories acc = (Accessories) obj;
+          formatter.format(" RequestNumber     ServiceType    Reques tDate    Material    Color      Payment Type     Delivary Date     total price       %n"
+                          +"❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀%n"
+                          +"%d                %s           %s          %s          %s            %s               %s           %.2f      %n%n%n"
+                           ,acc.getRequestNumber(),acc.getServiceType() ,acc.getRequestDate(),acc.getMaterial() 
+                           ,acc.getColor(),acc.getPaymentType(),acc.getDelDate() , acc.calculatePayment());
+      }
+   else
+       if (obj instanceof RealFlowers) {
+          Flowers flo = (Flowers) obj;
+          formatter.format(" RequestNumber    ServiceType    RequestDate     Color      Payment Type      Delivary Date        total price         %n"
+                          +"❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀%n"
+                          +"%d      %s         %s       %s         %s            %s             %.2f%n%n%n"
+                           ,flo.getRequestNumber() , flo.getServiceType() ,flo.getRequestDate(), flo.getColor()
+                           ,flo.getPaymentType(),flo.getDelDate(), flo.calculatePayment());
+      } 
+    if (obj instanceof ArtificialFlowers) {
+          Flowers flo = (Flowers) obj;
+          formatter.format(" RequestNumber    ServiceType    RequestDate    Color      Payment Type      Delivary Date        total price       %n"
+                          +"❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀\n" +
+"%n"
+                          +"%d       %s         %s          %s       %s          %s         %.2f%n%n%n"
+                           ,flo.getRequestNumber() , flo.getServiceType() ,flo.getRequestDate(), flo.getColor()
+                           ,flo.getPaymentType(),flo.getDelDate(), flo.calculatePayment());
+      } 
+               
+    }
+    catch(FormatterClosedException ex){
+         System.out.println("Logic to handel the exception !");
+     }
+  }
+  public void closeFile() {
+
+      if (formatter!=null) {
+          formatter.close();
+           }}
+
+}
