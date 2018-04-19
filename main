@@ -1,0 +1,286 @@
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner ;
+
+public class test {
+
+  static Scanner input = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException {
+        long recNum=0;
+        Accessories acc=new Accessories();
+        Flowers flow=new RealFlowers();
+          Flowers arti=new ArtificialFlowers();
+       ArrayList<Order>  arr = new ArrayList();
+     RealFlowers realArr []=new RealFlowers [6];
+        Shop shop = new Shop("The Flowers Heaven", "Riyadh");
+ System.out.println("                     ~(WELCOME to The Flowers Heaven !~)");
+      
+ System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
+      System.out.println("                       **Enter Your Info Please**");
+
+            System.out.print("   National ID : ");
+            long id = input.nextLong();
+            System.out.print("   Your Name : ");
+            String name = input.next();
+            System.out.print("   Yout Phone Number : ");
+            long phone = input.nextLong();
+            System.out.print("   Your address : ");
+            String address = input.next();
+            System.out.print("   Your mail : ");
+            String mail = input.next();
+
+            //create the objects
+            Customer customer = new Customer(id, name, phone,mail,address);
+
+
+        int userChoice = 0;
+
+        do {
+
+           Menu();
+
+             userChoice = input.nextInt();
+
+    switch (userChoice) {
+
+        case 1:      
+  System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
+        System.out.print  ("\n              CHOOSE AND I WILL HELP YOU TO DISINE IT:\n"
+                + "                               1- Real Flowers \n"
+                + "                               2- Artifical Flowers\n"
+                + "                               3- Accessories\n"
+                +    "❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀\n");
+           
+            System.out.print("  >> ");
+
+            int serviceOption = input.nextInt();
+               if (serviceOption==1) {
+System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀");
+System.out.println("                        which Flower do you want ? :\n");
+                   for (int i = 0; i < realArr.length; i++) {
+                        realArr[0] = new RealFlowers ("Tulip" ,"Yellow");
+                          realArr[1] = new RealFlowers ("Rose" , "Red");
+                            realArr[2] = new RealFlowers ("Lily" , "Pink");
+                              realArr[3] = new RealFlowers ("Camellia" ,"light blue");
+                                realArr[4] = new RealFlowers ("Jasmine" , "White");
+                                  realArr[5] = new RealFlowers ("Baby's breath" ,"White");
+                                realArr[i].FlowerTypes();
+                   }
+
+try{
+     System.out.print("      >> ");
+ String selectedFlower = input.next();
+ String color =color(selectedFlower.toLowerCase());
+
+System.out.print("                       how many flower do you want :"); 
+int flowcount =input.nextInt();
+System.out.print(  "                     how would you like to pay :\n               1-visa\n               2-cash\n               >>");
+int pay =input.nextInt();
+ String PaymentType= PaymentMethod(pay);
+     
+System.out.print("                                requist day:"); 
+int day =input.nextInt();
+System.out.print("                                    month:"); 
+int month =input.nextInt();
+System.out.print("                                     year :"); 
+int year =input.nextInt();
+System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
+ 
+    arr.add(new RealFlowers(selectedFlower,color,5, recNum++ ,PaymentType,new Date(day,month,year),flowcount,new Date(day+3,month,year),customer));
+}catch(InputMismatchException ex){
+
+    System.out.println("invalid type !");
+}
+               }
+               else
+                   if (serviceOption==2) {
+
+             
+System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀");
+try{
+System.out.print(  "                           color :");
+String color =input.next();
+System.out.print("                 how many flower do you want :"); 
+int flowcount =input.nextInt();
+System.out.print(  "                     how would you like to pay :\n               1-visa\n               2-cash\n               >>");
+int pay =input.nextInt();
+ String PaymentType= PaymentMethod(pay);
+                      
+System.out.print("                           requist day:"); 
+int day =input.nextInt();
+System.out.print("                             month:"); 
+int month =input.nextInt();
+System.out.print("                             year :"); 
+int year =input.nextInt();
+System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀");
+
+                      arr.add(new ArtificialFlowers(color,7,recNum++,PaymentType,new Date(day, month,year),flowcount,new Date (day+3,month,year),customer));
+}catch(InputMismatchException ex){
+    System.out.println("invalid type !");
+}  }
+ if (serviceOption==3) {
+System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀");
+try{
+System.out.print(  "                           size S,M,L :");
+char size =input.next().charAt(0);
+System.out.print(  "                        type of accessories :");
+String type =input.next();
+System.out.print(  "                             material :");
+String material =input.next();
+System.out.print(  "                              color :");
+String color =input.next();
+System.out.print(  "                     how would you like to pay :\n               1-visa\n               2-cash\n               >>");
+int pay=input.nextInt();
+   String PaymentType= PaymentMethod(pay);
+System.out.print("                     how many accessories do you want :"); 
+int accCount =input.nextInt();
+System.out.print("                             request day:"); 
+int day =input.nextInt();
+System.out.print("                                month:"); 
+int month =input.nextInt();
+System.out.print("                                year :"); 
+int year =input.nextInt();
+System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
+
+arr.add(new Accessories(size, type , material ,color,50,recNum++,PaymentType,new Date(day, month,year),accCount,new Date (day+3,month,year),customer));
+}catch(InputMismatchException ex){
+    System.out.println("invalid type !");
+}   }
+                    shop.openFile();
+            for (int i = 0; i < arr.size(); i++) {
+                shop.writeData(arr.get(i));
+
+            }
+                System.out.println("Orders has been created successfully !");
+
+                System.out.println("----------------Thank You-----------------");
+
+                shop.closeFile();
+
+               
+            break;//end case 1
+
+        case 2:
+try{
+            System.out.print("Enter order Request number : ");
+            long rn = input.nextLong();
+               
+            for (int i = 0; i < arr.size(); i++) {                   
+                     if (i==rn) {                       
+        System.out.println("--------Your Booking Info---------- ");
+                         arr.get(i).print();
+                          break;
+                }
+               else 
+                System.out.println("Order not found !");    
+            }
+}catch(IndexOutOfBoundsException ex){
+    System.out.println("index not allowed !");
+}
+            break;
+
+        
+
+        case 3:
+try{
+            System.out.print("Enter order request number : ");
+             int rn1 = input.nextInt();
+           
+            for (int i = 0; i < arr.size(); i++) {
+             if (i==rn1) {
+                 arr.remove(i);
+       System.out.println("your Order has been cancelled !");
+       break;
+             }
+       else {
+                 System.out.println("order not found !");
+             }
+                 }
+                
+
+        System.out.println("something wrong happened , check your request number please");
+}catch(IndexOutOfBoundsException ex){
+    System.out.println("index not allowed !");
+} 
+            
+            break;
+
+        case 4:
+            System.out.println("what is your problem , i will help you :");
+            String problem =input.nextLine();
+            System.out.println("We'll work to resolve it , sorry and thank you 3>");
+            break;
+            
+        case 5:
+            
+    }
+    
+        } while (userChoice != 5);
+
+    }//end main
+
+    public static void Menu() {
+
+        System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
+        System.out.print  ("\n                             Select One Of The Following :\n"
+                + "                                   1- new order \n"
+                + "                                   2- Display order Details\n"
+                + "                                   3- Cancel order\n"
+                + "                                   4- Make a complaint\n"
+                + "                                   5- Exit\n"
+                +         "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒\n"
+                + "                                    Your Choice >>");
+
+    }
+    
+    public static String PaymentMethod(int choice){
+   
+
+        long ccv=0;
+        String namevisa;
+        long visanum;
+        switch(choice){
+            case 1:
+System.out.print("                  Enter the visa number : ");
+                    visanum=input.nextLong();
+System.out.print("                  Enter CCV number : ");
+            ccv=input.nextLong();
+System.out.print("                  Enter The Visa Name: ");
+          namevisa=input.next();
+          return "visa";
+          
+          
+            case 2:
+
+ return "cash";
+ 
+        default:
+        System.out.println("Sorry But The Payment Method You Have Choosed Isn't Avaiable At our Shop");
+        return "NOT ALLOWED";
+    }
+       
+
+    }
+
+public static String color (String FlowerName){
+    if (FlowerName.equals("tulip")) 
+   return "Yellow";
+
+         if (FlowerName.equals("rose")) 
+    return "Red";
+ 
+               if (FlowerName.equals("lily")) 
+    return "Pink";
+
+                     if (FlowerName.equals("camilla")) 
+    return "light blue";
+
+  if (FlowerName.equals("Jasmin")||FlowerName.equals("baby's breath")) 
+      return "White";
+  return "invalid ";
+}
+
+}
+
