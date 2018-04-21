@@ -15,7 +15,7 @@ public class test {
        ArrayList<Order>  arr = new ArrayList();
      RealFlowers realArr []=new RealFlowers [6];
         Shop shop = new Shop("The Flowers Heaven", "Riyadh");
- System.out.println("                     ~(WELCOME to The Flowers Heaven !~)");
+ System.out.println("                     ~(WELCOME to The Flower Heaven Shop !~)");
       
  System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
       System.out.println("                       **Enter Your Info Please**");
@@ -24,7 +24,7 @@ public class test {
             long id = input.nextLong();
             System.out.print("   Your Name : ");
             String name = input.next();
-            System.out.print("   Yout Phone Number : ");
+            System.out.print("   Your Phone Number : ");
             long phone = input.nextLong();
             System.out.print("   Your address : ");
             String address = input.next();
@@ -47,7 +47,7 @@ public class test {
 
         case 1:      
   System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
-        System.out.print  ("\n              CHOOSE AND I WILL HELP YOU TO DISINE IT:\n"
+        System.out.print  ("\n              CHOOSE AND I WILL HELP YOU TO DESIGN IT:\n"
                 + "                               1- Real Flowers \n"
                 + "                               2- Artifical Flowers\n"
                 + "                               3- Accessories\n"
@@ -76,16 +76,19 @@ try{
 
 System.out.print("                       how many flower do you want :"); 
 int flowcount =input.nextInt();
+    System.out.println("");
 System.out.print(  "                     how would you like to pay :\n               1-visa\n               2-cash\n               >>");
 int pay =input.nextInt();
  String PaymentType= PaymentMethod(pay);
      
-System.out.print("                                requist day:"); 
+System.out.print("                                request day:"); 
 int day =input.nextInt();
 System.out.print("                                    month:"); 
 int month =input.nextInt();
 System.out.print("                                     year :"); 
+
 int year =input.nextInt();
+ System.out.print("Enter order request number : "+recNum);
 System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
  
     arr.add(new RealFlowers(selectedFlower,color,5, recNum++ ,PaymentType,new Date(day,month,year),flowcount,new Date(day+3,month,year),customer));
@@ -108,12 +111,13 @@ System.out.print(  "                     how would you like to pay :\n          
 int pay =input.nextInt();
  String PaymentType= PaymentMethod(pay);
                       
-System.out.print("                           requist day:"); 
+System.out.print("                           request day:"); 
 int day =input.nextInt();
 System.out.print("                             month:"); 
 int month =input.nextInt();
 System.out.print("                             year :"); 
 int year =input.nextInt();
+         System.out.print("Enter order request number : "+recNum);
 System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀");
 
                       arr.add(new ArtificialFlowers(color,7,recNum++,PaymentType,new Date(day, month,year),flowcount,new Date (day+3,month,year),customer));
@@ -141,7 +145,9 @@ int day =input.nextInt();
 System.out.print("                                month:"); 
 int month =input.nextInt();
 System.out.print("                                year :"); 
+
 int year =input.nextInt();
+         System.out.print("Enter order request number : "+recNum);
 System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
 
 arr.add(new Accessories(size, type , material ,color,50,recNum++,PaymentType,new Date(day, month,year),accCount,new Date (day+3,month,year),customer));
@@ -165,17 +171,24 @@ arr.add(new Accessories(size, type , material ,color,50,recNum++,PaymentType,new
         case 2:
 try{
             System.out.print("Enter order Request number : ");
-            long rn = input.nextLong();
-               
-            for (int i = 0; i < arr.size(); i++) {                   
-                     if (i==rn) {                       
-        System.out.println("--------Your Booking Info---------- ");
-                         arr.get(i).print();
-                          break;
-                }
-               else 
-                System.out.println("Order not found !");    
-            }
+            int rn = input.nextInt();
+            
+             
+             int CurrentNum=0 ;
+           
+            for (int i = 0; i < arr.size(); i++) {
+             if (i==rn) 
+                 CurrentNum=i;
+                 }//end loop
+            
+            
+         if (CurrentNum==rn) {
+         System.out.println("--------Your Booking Info---------- ");
+                         arr.get(CurrentNum).print();
+    }
+         else
+        System.out.println("something wrong happened , check your request number please");
+             
 }catch(IndexOutOfBoundsException ex){
     System.out.println("index not allowed !");
 }
@@ -187,20 +200,22 @@ try{
 try{
             System.out.print("Enter order request number : ");
              int rn1 = input.nextInt();
+             
+             int CurrentNum=0 ;
            
             for (int i = 0; i < arr.size(); i++) {
-             if (i==rn1) {
-                 arr.remove(i);
-       System.out.println("your Order has been cancelled !");
-       break;
-             }
-       else {
-                 System.out.println("order not found !");
-             }
-                 }
-                
-
+             if (i==rn1) 
+                 CurrentNum=i;
+                 }//end loop
+            
+            
+         if (CurrentNum==rn1) {
+        arr.remove(CurrentNum);
+             System.out.println("your order was canceld !");
+    }else
         System.out.println("something wrong happened , check your request number please");
+         
+         
 }catch(IndexOutOfBoundsException ex){
     System.out.println("index not allowed !");
 } 
@@ -283,4 +298,3 @@ public static String color (String FlowerName){
 }
 
 }
-
