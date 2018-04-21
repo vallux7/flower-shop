@@ -88,7 +88,7 @@ int month =input.nextInt();
 System.out.print("                                     year :"); 
 
 int year =input.nextInt();
- System.out.print("Enter order request number : "+recNum);
+ System.out.println("Your order request number : "+recNum);
 System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
  
     arr.add(new RealFlowers(selectedFlower,color,5, recNum++ ,PaymentType,new Date(day,month,year),flowcount,new Date(day+3,month,year),customer));
@@ -117,7 +117,7 @@ System.out.print("                             month:");
 int month =input.nextInt();
 System.out.print("                             year :"); 
 int year =input.nextInt();
-         System.out.print("Enter order request number : "+recNum);
+         System.out.println("your order request number : "+recNum);
 System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀");
 
                       arr.add(new ArtificialFlowers(color,7,recNum++,PaymentType,new Date(day, month,year),flowcount,new Date (day+3,month,year),customer));
@@ -147,25 +147,14 @@ int month =input.nextInt();
 System.out.print("                                year :"); 
 
 int year =input.nextInt();
-         System.out.print("Enter order request number : "+recNum);
+         System.out.println("your order request number : "+recNum);
 System.out.println("❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ");
 
 arr.add(new Accessories(size, type , material ,color,50,recNum++,PaymentType,new Date(day, month,year),accCount,new Date (day+3,month,year),customer));
 }catch(InputMismatchException ex){
     System.out.println("invalid type !");
 }   }
-                    shop.openFile();
-            for (int i = 0; i < arr.size(); i++) {
-                shop.writeData(arr.get(i));
-
-            }
-                System.out.println("Orders has been created successfully !");
-
-                System.out.println("----------------Thank You-----------------");
-
-                shop.closeFile();
-
-               
+                   
             break;//end case 1
 
         case 2:
@@ -231,7 +220,19 @@ try{
         case 5:
             
     }
-    
+     shop.openFile();
+            for (int i = 0; i < arr.size(); i++) {
+                shop.writeData(arr.get(i));
+
+            }
+                System.out.println("Orders has been created successfully !");
+
+                System.out.println("----------------Thank You-----------------");
+
+                  shop.closeFile();
+
+               
+  
         } while (userChoice != 5);
 
     }//end main
