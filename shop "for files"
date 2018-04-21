@@ -1,7 +1,7 @@
-
 import java.io.FileNotFoundException;
 import java.util.Formatter;
 import java.util.FormatterClosedException;
+
 
 public class Shop {
     //files
@@ -41,27 +41,27 @@ public class Shop {
     try{
    if (obj instanceof Accessories) {
           Accessories acc = (Accessories) obj;
-          formatter.format(" RequestNumber     ServiceType    Reques tDate    Material    Color      Payment Type     Delivary Date     total price       %n"
+          formatter.format("  RequestNumber     ServiceType   Request Date    Material    Color      Payment Type     Delivary Date     total price       %n"
                           +"❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀%n"
-                          +"%d                %s           %s          %s          %s            %s               %s           %.2f      %n%n%n"
+                        +"%d      %s         %s         %s         %s             %s            %s             %.2f%n%n%n"
                            ,acc.getRequestNumber(),acc.getServiceType() ,acc.getRequestDate(),acc.getMaterial() 
                            ,acc.getColor(),acc.getPaymentType(),acc.getDelDate() , acc.calculatePayment());
       }
    else
        if (obj instanceof RealFlowers) {
           Flowers flo = (Flowers) obj;
-          formatter.format(" RequestNumber    ServiceType    RequestDate     Color      Payment Type      Delivary Date        total price         %n"
+          formatter.format("  RequestNumber    ServiceType    RequestDate     Color      Payment Type      Delivary Date        total price         %n"
                           +"❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀%n"
-                          +"%d      %s         %s       %s         %s            %s             %.2f%n%n%n"
+                         +"       %d       %s       %s       %s       %s             %s         %.2f%n%n%n"
                            ,flo.getRequestNumber() , flo.getServiceType() ,flo.getRequestDate(), flo.getColor()
                            ,flo.getPaymentType(),flo.getDelDate(), flo.calculatePayment());
       } 
     if (obj instanceof ArtificialFlowers) {
           Flowers flo = (Flowers) obj;
-          formatter.format(" RequestNumber    ServiceType    RequestDate    Color      Payment Type      Delivary Date        total price       %n"
+          formatter.format("  RequestNumber    ServiceType    RequestDate    Color    Payment Type    Delivary Date    total price       %n"
                           +"❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀ ❀\n" +
 "%n"
-                          +"%d       %s         %s          %s       %s          %s         %.2f%n%n%n"
+                          +"       %d       %s       %s       %s       %s       %s         %.2f%n%n%n"
                            ,flo.getRequestNumber() , flo.getServiceType() ,flo.getRequestDate(), flo.getColor()
                            ,flo.getPaymentType(),flo.getDelDate(), flo.calculatePayment());
       } 
