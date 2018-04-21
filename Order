@@ -18,7 +18,7 @@ public abstract class Order implements Payable {
 
  
 
-    public Order(long RequestNumber, String PaymentType, flowerproject.Date RequestDate, int quantity, flowerproject.Date delDate, Customer info) {
+    public Order(long RequestNumber, String PaymentType, Date RequestDate, int quantity, Date delDate, Customer info) {
         this.RequestNumber = RequestNumber;
         this.PaymentType = PaymentType;
         this.RequestDate = RequestDate;
@@ -27,6 +27,7 @@ public abstract class Order implements Payable {
         this.info = info;
   
     }
+    
 
     public Order() {
         RequestNumber = 0;
@@ -59,7 +60,7 @@ public abstract class Order implements Payable {
         Order.in = in;
     }
 
-    public String getPaymentType() {
+    public String  getPaymentType() {
         return PaymentType;
     }
 
@@ -121,7 +122,7 @@ public abstract class Order implements Payable {
  
     public void print() {
 
-        System.out.print("£££££££££££££££££ ORDER £££££££££££££££3"
+        System.out.print("£££££££££££££££££ ORDER £££££££££££££££"
                 + "\n    Request Number :" + RequestNumber
                 + "\n    Recuest Date :" + RequestDate
                 + "\n    Delivery Date :" + delDate
